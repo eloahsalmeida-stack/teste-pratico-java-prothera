@@ -13,16 +13,16 @@ public class Main {
         // 3.1 – Inserir todos os funcionários, na mesma ordem e informações da tabela acima.
         List<Funcionarios> funcionarios = new ArrayList<>();
 
-        funcionarios.add(new Funcionarios("Maria", LocalDate.of(2000, 10, 18), new BigDecimal(2009.44), "Operador"));
-        funcionarios.add(new Funcionarios("João", LocalDate.of(1990, 5, 12), new BigDecimal(2284.38), "Operador"));
-        funcionarios.add(new Funcionarios("Caio", LocalDate.of(1961, 5, 2), new BigDecimal(9836.14), "Coordenador"));
-        funcionarios.add(new Funcionarios("Miguel", LocalDate.of(1988, 10, 14), new BigDecimal(19119.88), "Diretor"));
-        funcionarios.add(new Funcionarios("Alice", LocalDate.of(1995, 1, 5), new BigDecimal(2234.68), "Recepcionista"));
-        funcionarios.add(new Funcionarios("Heitor", LocalDate.of(1999, 11, 19), new BigDecimal(1582.72), "Operador"));
-        funcionarios.add(new Funcionarios("Arthur", LocalDate.of(1993, 3, 31), new BigDecimal(4071.84), "Contador"));
-        funcionarios.add(new Funcionarios("Laura", LocalDate.of(1994, 7, 8), new BigDecimal(3017.45), "Gerente"));
-        funcionarios.add(new Funcionarios("Heloísa", LocalDate.of(2003, 5, 24), new BigDecimal(1606.85), "Eletricista"));
-        funcionarios.add(new Funcionarios("Helena", LocalDate.of(1996, 9, 2), new BigDecimal(2799.93), "Gerente"));
+        funcionarios.add(new Funcionarios("Maria", LocalDate.of(2000, 10, 18), new BigDecimal("2009.44"), "Operador"));
+        funcionarios.add(new Funcionarios("João", LocalDate.of(1990, 5, 12), new BigDecimal("2284.38"), "Operador"));
+        funcionarios.add(new Funcionarios("Caio", LocalDate.of(1961, 5, 2), new BigDecimal("9836.14"), "Coordenador"));
+        funcionarios.add(new Funcionarios("Miguel", LocalDate.of(1988, 10, 14), new BigDecimal("19119.88"), "Diretor"));
+        funcionarios.add(new Funcionarios("Alice", LocalDate.of(1995, 1, 5), new BigDecimal("2234.68"), "Recepcionista"));
+        funcionarios.add(new Funcionarios("Heitor", LocalDate.of(1999, 11, 19), new BigDecimal("1582.72"), "Operador"));
+        funcionarios.add(new Funcionarios("Arthur", LocalDate.of(1993, 3, 31), new BigDecimal("4071.84"), "Contador"));
+        funcionarios.add(new Funcionarios("Laura", LocalDate.of(1994, 7, 8), new BigDecimal("3017.45"), "Gerente"));
+        funcionarios.add(new Funcionarios("Heloísa", LocalDate.of(2003, 5, 24), new BigDecimal("1606.85"), "Eletricista"));
+        funcionarios.add(new Funcionarios("Helena", LocalDate.of(1996, 9, 2), new BigDecimal("2799.93"), "Gerente"));
 
         // 3.2 – Remover o funcionário “João” da lista.
         funcionarios.removeIf(funcionario -> funcionario.getNome().equals("João"));
@@ -87,7 +87,7 @@ public class Main {
 
         //3.11 – Imprimir o total dos salários dos funcionários.
         System.out.println("-------------------------------------------------------------------");
-        NumberFormat numberFormat = NumberFormat.getNumberInstance(new Locale("pt", "BR"));
+        NumberFormat numberFormat = NumberFormat.getNumberInstance(Locale.of("pt", "BR"));
         numberFormat.setMinimumFractionDigits(2);
         numberFormat.setMaximumFractionDigits(2);
         List<BigDecimal> salariosFuncionarios = funcionarios.stream().map(Funcionarios::getSalario).toList();

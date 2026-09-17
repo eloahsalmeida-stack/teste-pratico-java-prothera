@@ -38,7 +38,7 @@ public class Funcionarios extends Pessoa {
     @Override
     public String toString() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        NumberFormat numberFormat = NumberFormat.getNumberInstance(new Locale("pt", "BR"));
+        NumberFormat numberFormat = NumberFormat.getNumberInstance(Locale.of("pt", "BR"));
         numberFormat.setMinimumFractionDigits(2);
         numberFormat.setMaximumFractionDigits(2);
         return this.getNome() + "| " + this.getDataNascimento().format(formatter) + "| " + numberFormat.format(this.getSalario()) + "| " + this.getFuncao();
