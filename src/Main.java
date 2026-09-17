@@ -70,9 +70,13 @@ public class Main {
 
         // 3.9 – Imprimir o funcionário com a maior idade, exibir os atributos: nome e idade.
         System.out.println("-------------------------------------------------------------------");
-        Funcionarios funcionarioMaiorIdade = funcionarios.stream().min(Comparator.comparing(Funcionarios::getDataNascimento)).orElse(null);
+        Funcionarios funcionarioMaiorIdade = funcionarios.stream().min(Comparator.comparing(Funcionarios::getDataNascimento)).orElseThrow();
         LocalDate dataAtual = LocalDate.now();
         int idadeFuncionario = dataAtual.getYear() - funcionarioMaiorIdade.getDataNascimento().getYear();
+        if (dataAtual.isBefore(
+                funcionarioMaiorIdade.getDataNascimento().plusYears(idadeFuncionario))) {
+            idadeFuncionario--;
+        }
         System.out.println("Funcionário de Maior Idade: " + funcionarioMaiorIdade.getNome() +" | Idade: " + idadeFuncionario + " anos.");
 
         //3.10 – Imprimir a lista de funcionários por ordem alfabética.
